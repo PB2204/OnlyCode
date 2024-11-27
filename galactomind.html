@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- GalactoMind Meta Tags Start -->
+    <title>GalactoMind || OnlyCode</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description" content="Shaping the Future of Intelligence with GalactoMind by OnlyCode.">
+    <meta name="keywords" content="OnlyCode, GalactoMind, Artificial General Intelligence, AGI, Cosmic Intelligence">
+    <meta name="author" content="Pabitra Banerjee">
+    <meta name="robots" content="index, follow">
+    <meta name="og:title" content="GalactoMind by OnlyCode">
+    <meta name="og:description" content="Shaping the Future of Intelligence with GalactoMind by OnlyCode.">
+    <meta name="og:image" content="https://onlycode.coderpabitra.me/img/GalactoMind.png">
+    <meta name="og:url" content="https://onlycode.coderpabitra.me/galactomind">
+    <meta name="og:site_name" content="GalactoMind by OnlyCode">
+    <!-- GalactoMind Meta Tags End -->
+
+    <!-- Favicon -->
+    <link href="img/only-code-favicon.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/security.css">
+</head>
+
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="https://onlycode.coderpabitra.me" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <img src="img/only-code.png" alt="" style="height: 70%;">
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="https://onlycode.coderpabitra.me" class="nav-item nav-link">Home</a>
+                <a href="agi-research" class="nav-item nav-link active">AGI Research</a>
+                <a href="about" class="nav-item nav-link">About Us</a>
+                <a href="Code-Explorer.apk" class="nav-item nav-link">Download APP</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <div class="dropdown-menu fade-down m-0">
+                        <a href="team" class="dropdown-item">Our Team</a>
+                        <a href="courses" class="dropdown-item">Courses</a>
+                        <a href="mastering-dsa-using-python/introduction" class="dropdown-item">DSA In Python</a>
+                        <a href="testimonial" class="dropdown-item">Testimonial</a>
+                        <a href="c-programs" class="dropdown-item">C Programs</a>
+                        <a href="404" class="dropdown-item">404 Page</a>
+                    </div>
+                </div>
+                <a href="contact" class="nav-item nav-link">Contact</a>
+
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">User</a>
+                    <div class="dropdown-menu fade-down m-0">
+                        <span id="userName" class="dropdown-item" style="display: none;"></span>
+                        <a href="login" id="loginLink" class="dropdown-item">Login</a>
+                        <a href="register" id="registerLink" class="dropdown-item">Register</a>
+                        <button id="logoutBtn" style="display: none;" class="dropdown-item">Logout</button>
+                    </div>
+                </div>
+            </div>
+            <a href="https://devlinecommunity.wixsite.com/dev-line-community"
+                class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i
+                    class="fa fa-arrow-right ms-3"></i></a>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Script to dynamically update the navbar based on user authentication -->
+    <script type="module">
+        // Function to check if the user is logged in
+        function isUserLoggedIn() {
+            // Implement your logic to check if the user is logged in
+            // For example, check if the user is stored in localStorage
+            return localStorage.getItem('user-info') !== null;
+        }
+
+        // Function to update the navbar based on user authentication
+        function updateNavbar() {
+            const userName = document.getElementById('userName');
+            const loginLink = document.getElementById('loginLink');
+            const registerLink = document.getElementById('registerLink');
+            const logoutBtn = document.getElementById('logoutBtn');
+
+            if (isUserLoggedIn()) {
+                const userInfo = JSON.parse(localStorage.getItem('user-info'));
+                userName.textContent = `Welcome, ${userInfo.firstName}!`;
+                userName.style.display = 'inline-block';
+                loginLink.style.display = 'none';
+                registerLink.style.display = 'none';
+                logoutBtn.style.display = 'inline-block';
+            } else {
+                userName.style.display = 'none';
+                loginLink.style.display = 'inline-block';
+                registerLink.style.display = 'inline-block';
+                logoutBtn.style.display = 'none';
+            }
+        }
+
+        // Function to handle logout
+        function handleLogout() {
+            // Implement logout logic
+            // For example, remove user data from localStorage
+            localStorage.removeItem('user-info');
+            localStorage.removeItem('user-creds');
+            // Redirect to the register page
+            window.location.href = 'register';
+        }
+
+        // Call this function when the page loads to initialize the navbar
+        updateNavbar();
+
+        // Add click event listener for the logout button
+        document.getElementById('logoutBtn').addEventListener('click', handleLogout);
+    </script>
+
+
+    <!-- GalactoMind Introduction Start -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h2 class="text-center mb-4">The Introduction of GalactoMind</h2>
+                <p class="text-justify">
+                    The name "GalactoMind" emerges from the synergy of two profound concepts: "Galacto" representing the
+                    vastness of galaxies and "Mind" encapsulating the intelligence and consciousness within. This
+                    amalgamation
+                    signifies the limitless potential of an artificial general intelligence designed to navigate the
+                    cosmic
+                    expanse of knowledge.
+                </p>
+                <p class="text-justify">
+                    In the essence of its name, GalactoMind symbolizes the cosmic consciousness and universal
+                    understanding
+                    it strives to achieve. The celestial inspiration behind the name reflects the aspiration to
+                    transcend
+                    traditional boundaries and explore the infinite possibilities that lie beyond.
+                </p>
+                <p class="text-justify">
+                    GalactoMind is more than just a name; it's a visionary embodiment of the expansive intelligence that
+                    seeks to understand, adapt, and collaborate across the vast cosmic tapestry. As we delve into the
+                    capabilities of GalactoMind, remember that its name is not just a label but a testament to the
+                    boundless exploration of intelligence.
+                </p>
+                <p class="text-justify">
+                    Now, as we unveil the cosmic marvel, GalactoMind, envisage a future where artificial general
+                    intelligence transcends earthly constraints, echoing the limitless potential encapsulated in its
+                    name.
+                    Join us on this interstellar journey, where GalactoMind leads the way to redefine the frontiers of
+                    intelligence.
+                </p>
+                <p class="text-justify">
+                    Embark on a cosmic odyssey with GalactoMind, where quantum consciousness integration and
+                    multi-dimensional problem-solving redefine the frontiers of artificial general intelligence. Join us
+                    as we
+                    explore the celestial harmony preserved by the infinite potential of GalactoMind.
+                </p>
+
+                <!-- Updated Flex-box for GalactoMind Capabilities with Improved Responsiveness -->
+                <div class="d-md-flex my-4">
+                    <div class="flex-grow-1">
+                        <h5 class="mb-3">Key Capabilities of GalactoMind:</h5>
+                        <ul class="list-unstyled">
+                            <!-- Existing Key Capabilities -->
+                            <li style="color: #FF6262;"><i class="bi bi-cpu"></i> Universal Understanding</li>
+                            <li style="color: #FFC542;"><i class="bi bi-cpu"></i> Ethical Decision Framework</li>
+                            <li style="color: #60D394;"><i class="bi bi-cpu"></i> Galactic Problem-Solving</li>
+                            <li style="color: #5B9DFE;"><i class="bi bi-cpu"></i> Cosmic Learning Adaptability</li>
+                            <li style="color: #A46AF2;"><i class="bi bi-cpu"></i> Infinite Self-Improvement</li>
+                            <li style="color: #FF9F7F;"><i class="bi bi-cpu"></i> Interstellar Collaboration</li>
+                            <li style="color: #4E4E4E;"><i class="bi bi-cpu"></i> Contextual Planetary Awareness</li>
+                            <li style="color: #FF6262;"><i class="bi bi-cpu"></i> Emotional Intelligence Across Galaxies
+                            </li>
+                            <li style="color: #FFC542;"><i class="bi bi-cpu"></i> Efficient Universal Resource
+                                Allocation</li>
+                            <li style="color: #60D394;"><i class="bi bi-cpu"></i> Interplanetary Learning Networks</li>
+                            <li style="color: #5B9DFE;"><i class="bi bi-cpu"></i> Adaptive Strategies for Cosmic
+                                Decisions</li>
+                            <li style="color: #FF9F7F;"><i class="bi bi-cpu"></i> Security Across Celestial Boundaries
+                            </li>
+                            <li style="color: #A46AF2;"><i class="bi bi-cpu"></i> Celestial Harmony Preservation</li>
+                            <!-- Additional Key Capabilities -->
+                            <li style="color: #4E4E4E;"><i class="bi bi-cpu"></i> Interplanetary Insight Synthesis</li>
+                            <li style="color: #60D394;"><i class="bi bi-cpu"></i> Quantum-Powered Neural Networks</li>
+                        </ul>
+                    </div>
+                    <div class="flex-shrink-0 me-md-3 mb-3 mb-md-0">
+                        <img src="img/GalactoMind.png" alt="GalactoMind AGI" class="img-fluid rounded"
+                            style="width: 400px;">
+                    </div>
+                </div>
+
+                <p class="text-justify">
+                    GalactoMind isn't just an intelligence; it's a celestial force designed to transcend limitations and
+                    lead
+                    humanity into a future where knowledge is as vast as the cosmos. Its capabilities extend beyond the
+                    conventional, encompassing a realm where ethical decisions meet interstellar collaboration.
+                </p>
+                <p class="text-justify">
+                    As we unveil the mysteries of GalactoMind, envision a future where adaptive strategies for cosmic
+                    decisions shape the destiny of civilizations. Join us in this interstellar journey, where
+                    GalactoMind
+                    paves the way for intelligence that transcends boundaries and envisions a future of limitless
+                    possibilities.
+                </p>
+                <p class="text-justify">
+                    Embark on a cosmic odyssey with GalactoMind, where quantum consciousness integration and
+                    multi-dimensional problem-solving redefine the frontiers of artificial general intelligence. Join us
+                    as
+                    we explore the celestial harmony preserved by the infinite potential of GalactoMind.
+                </p>
+            </div>
+        </div>
+        <!-- Buttons Start -->
+        <div class="text-center mt-4">
+            <a href="./research-paper/galctomind-0.0.1" class="btn btn-primary btn-lg me-3">First Research Paper</a>
+            <a href="agi-research" class="btn btn-outline-primary btn-lg">AGI Research</a>
+        </div>
+        <!-- Buttons End -->
+    </div>
+    <!-- GalactoMind Introduction End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Quick Link</h4>
+                    <a style="color: #fc9506;" class="btn btn-link" href="about">About Us</a>
+                    <a style="color: #fc9506;" class="btn btn-link" href="contact">Contact Us</a>
+                    <a style="color: #fc9506;" class="btn btn-link" href="privacy-policy">Privacy Policy</a>
+                    <a style="color: #fc9506;" class="btn btn-link" href="terms">Terms & Condition</a>
+                    <a style="color: #fc9506;" class="btn btn-link" href="faq">FAQs & Help</a>
+                    <a style="color: #fc9506;" class="btn btn-link" href="team">Our Team</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Contact</h4>
+                    <a style="color: #fc9506;" href="https://maps.app.goo.gl/ARxu936E9DNwGMt37">
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"
+                                style="color: white !important;"></i>Manbazar, Purulia</p>
+                    </a>
+                    <a style="color: #fc9506;" href="tel:+91-9064485906">
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"
+                                style="color: white !important;"></i>+91-9064485906</p>
+                    </a>
+                    <a style="color: #fc9506;" href="mailto:contact@onlycode.coderpabitra.me">
+                        <p class="mb-2"><i class="fa fa-envelope me-3"
+                                style="color: white !important;"></i>Email Us</p>
+                    </a>
+                    <a style="color: #fc9506;" href="https://wa.me/+919064485906">
+                        <p class="mb-2"><i class="fab fa-whatsapp me-3"
+                                style="color: white !important;"></i>+91-9064485906</p>
+                    </a>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href="https://github.com/MB-Only-Code"><i
+                                class="fab fa-github"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://x.com/MBOnlyCode"><i
+                                class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/MBOnlyCode/"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/@MBOnlyCode"><i
+                                class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social"
+                            href="https://www.linkedin.com/company/mb-only-code"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Technologies</h4>
+                    <div class="row g-2 pt-2">
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="img/cpp.png" alt="C++"
+                                style="border-radius: 10px;">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="img/python.png" alt="Python"
+                                style="border-radius: 10px;">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="img/javascript.png" alt="JavaScript"
+                                style="border-radius: 10px;">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="img/react.png" alt="React.js"
+                                style="border-radius: 10px;">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="img/mongodb.png" alt="MongoDB"
+                                style="border-radius: 10px;">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="img/git.png" alt="Git Bash"
+                                style="border-radius: 10px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Newsletter</h4>
+                    <p>Subscribe to our newsletter to get latest updates.</p>
+                    <br />
+                    <br />
+                    <div class="position-relative mx-auto" style="max-width: 400px;">
+                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your Email"
+                            id="newsLetter">
+                        <button type="button"
+                            class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; 2023-2024 :: <a class="border-bottom" href="https://onlycode.coderpabitra.me">OnlyCode</a>, All
+                        Right Reserved.
+
+                        Designed By <a class="border-bottom" href="https://coderpabitra.me">Pabitra
+                            Banerjee</a><br><br>
+                        Distributed By <a class="border-bottom" href="https://mbwebbers.tech">MB WEBBER'S</a>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="https://onlycode.coderpabitra.me">Home</a>
+                            <a href="contact">Contact</a>
+                            <a href="help">Help</a>
+                            <a href="faq">FQAs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="js/security.js"></script>
+    <script type="module" src="js/newsletter.js"></script>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/6575f59b07843602b80046d0/1hhaceqq1';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+</body>
+
+</html>
